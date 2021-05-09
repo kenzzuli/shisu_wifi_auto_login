@@ -1,0 +1,17 @@
+# 上外校园网自动登录
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver import FirefoxOptions
+import time
+
+opts = FirefoxOptions()
+opts.add_argument("--headless")
+# driver = webdriver.Chrome(executable_path="./chromedriver")
+# driver = webdriver.Firefox(executable_path="./geckodriver_mac")
+driver = webdriver.Firefox(executable_path="./geckodriver", firefox_options=opts)
+driver.get("http://10.0.0.217")
+driver.find_element_by_css_selector("input[type='text'][name='DDDDD']").send_keys("0204101695")
+driver.find_element_by_css_selector("input[type='password'][name='upass']").send_keys("Liulei123")
+driver.find_element_by_css_selector("input[type='submit'][value='登录']").send_keys(Keys.ENTER)
+time.sleep(100)
+driver.quit()
